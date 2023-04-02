@@ -6,8 +6,11 @@ const notion = new Client({ auth: process.env.NOTION_KEY })
 const pokeArray = []
 
 async function getPokemon() {
-  await axios.get("https://pokeapi.co/api/v2/pokemon/2")
-    .then((poke) => {
+  
+  for  (let i = 1; i <= 10; i ++) {
+    await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`)
+      .then((poke) => {
+      
       const pokeData = {
         "name": poke.data.name,
         "number": poke.data.id,
@@ -28,6 +31,8 @@ async function getPokemon() {
     .catch((error) => {
       console.log(error)
     })
+  }
+
   createNotionPage()
 }
 
