@@ -40,6 +40,8 @@ async function getPokemon() {
       
       const bulbURL = `https://bulbapedia.bulbagarden.net/wiki/${processedName.replace(' ', '_')}_(Pokémon)`
 
+      console.log(bulbURL)
+      
       const pokeData = {
         "name": processedName,
         "number": poke.data.id,
