@@ -41,7 +41,27 @@ async function createNotionPage() {
         "database_id": process.env.NOTION_DATABASE_ID
       },
       "properties": {
-        "name"
+        "Name": {
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": pokemon.name
+              }
+            }
+          ]
+        },
+        "No": {
+          "number": pokemon.number
+        },
+        "HP": {  "number": pokemon.hp },
+        "Attack": {  "number": pokemon.attack },
+        "Defense": {  "number": pokemon.defense },
+        "Sp. Attack": {  "number": pokemon.[ 'special-attack' ] },
+        "Sp. Defense": {  "number": pokemon.[ 'special-defense'] },
+        
+        
+        }
       }
     })
   }
