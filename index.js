@@ -1,19 +1,23 @@
-const axios = require('axios')
-const { Client } = require('@notionhq/client')
+const axios = require("axios");
+const { Client } = require("@notionhq/client");
 
-const notion = new Client ({auth: process.env.NOTION_KEY})
+const notion = new Client({ auth: process.env.NOTION_KEY });
 
-const pakeArray = []
+const pakeArray = [];
 
-async function getPokemaon() {
-  await axios.get('https://pokeapi.co/api/v2/pokemon/1').
+async function getPokemon() {
+  await axios
+    .get("https://pokeapi.co/api/v2/pokemon/1")
+    .then((poke) => {
+      
+      const pokeData = {
+        
+      }
+      console.log(name);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
-  const start = 1
-  const end = 10
-  for (let i = start; <= end; i++){
-    const poke = 
-      .then((poke) => {
-        console.log(poke)
-        .catch((error) => {
-        console.log(error)
+getPokemon();
