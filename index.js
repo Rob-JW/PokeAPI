@@ -37,8 +37,10 @@ async function createNotionPage() {
   for (let pokemon of pokeArray) {
     const response = await notion.pages.create({
       "parent": {
-        "type": database
-      }
+        "type": "database_id",
+        "database_id": process.env.NOTION_DATABASE_ID
+      },
+      "properties"
     })
   }
 }
