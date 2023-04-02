@@ -13,16 +13,16 @@ async function getPokemon() {
       const pokeData = {
         "name": poke.data.name, 
         "number": poke.data.id,
-        "hp": poke.data.stat.[0].base_stat,
+        "hp": poke.data.stats[0].base_stat,
         "height": poke.data.height,
         "weight": poke.data.weight,
-        "attack": poke.data.attack,
-        "defense": poke.data.defense,
-        "special-attack": ,
-        "special-defense": ,
-        "speed": ,
+        "attack": poke.data.stats[1].base_stat,
+        "defense": poke.data.stats[2].base_stat,
+        "special-attack": poke.data.stats[3].base_stat,
+        "special-defense": poke.data.stats[4].base_stat,
+        "speed": poke.data.stats[5].base_stat,
       }
-      console.log(name);
+      console.log(pokeData);
     })
     .catch((error) => {
       console.log(error);
