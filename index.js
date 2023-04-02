@@ -11,7 +11,16 @@ async function getPokemon() {
     .then((poke) => {
       
       const pokeData = {
-        
+        "name": poke.data.name, 
+        "number": poke.data.id,
+        "hp": poke.data.stat.[0].base_stat,
+        "height": poke.data.height,
+        "weight": poke.data.weight,
+        "attack": poke.data.attack,
+        "defense": poke.data.defense,
+        "special-attack": ,
+        "special-defense": ,
+        "speed": ,
       }
       console.log(name);
     })
