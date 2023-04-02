@@ -14,17 +14,22 @@ async function getPokemon() {
       const typesArray = []
       
       for (let type of poke.data.types) {
-        const typObj = {
+        const typeObj = {
           "name": type.type.name
         }
-      }
+        typesArray.push(typeObj)
+      }          
       
-      const sprite = (!poke.data.sprotes.front_default) ? 
-        poke.data.sprites.other['official-artwork'].front_default : 
-        poke.data.sprotes.front_default
+      const processedName = poke.data.species.name.split(/_/).map((name) => {
+        
+      })
       
+      const sprite = (!poke.data.sprotes.front_default) ? poke.data.sprites.other['official-artwork'].front_default : poke.data.sprotes.front_default
+      
+      const bulbURL = `https://bulbapedia.bulbagarden.net/wiki/${processedName}_(Pokémon)`
+
       const pokeData = {
-        "name": poke.data.species.name,
+        "name": processedName,
         "number": poke.data.id,
         "types": typesArray,
         "hp": poke.data.stats[0].base_stat,
@@ -37,6 +42,7 @@ async function getPokemon() {
         "speed": poke.data.stats[5].base_stat,
         "sprite": sprite,
         "artwork": poke.data.sprites.other['official-artwork'].front_default,
+        "bulbURL": bulbURL,
       }
       
       console.log(`Fetching ${pokeData.name} from PokeAPI.`)
