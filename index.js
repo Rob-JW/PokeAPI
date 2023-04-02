@@ -12,7 +12,7 @@ async function getPokemon() {
       .then((poke) => {
       
       const pokeData = {
-        "name": poke.data.name,
+        "name": poke.data.species.name,
         "number": poke.data.id,
         "hp": poke.data.stats[0].base_stat,
         "height": poke.data.height,
@@ -22,6 +22,8 @@ async function getPokemon() {
         "special-attack": poke.data.stats[3].base_stat,
         "special-defense": poke.data.stats[4].base_stat,
         "speed": poke.data.stats[5].base_stat,
+        "sprite": poke.data.sprite.front_default,
+        "artwork": poke.data.sprites.other['official-artwork'].front_
       }
       
       console.log(`Fetching ${pokeData.name} from PokeAPI.`)
