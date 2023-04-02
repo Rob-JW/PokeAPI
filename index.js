@@ -3,7 +3,7 @@ const { Client } = require("@notionhq/client");
 
 const notion = new Client({ auth: process.env.NOTION_KEY });
 
-const pakeArray = [];
+const pakeArray = []
 
 async function getPokemon() {
   await axios
@@ -22,6 +22,8 @@ async function getPokemon() {
         "special-defense": poke.data.stats[4].base_stat,
         "speed": poke.data.stats[5].base_stat,
       }
+      
+      pakeArray.push(pokeData)
       console.log(pokeData);
     })
     .catch((error) => {
@@ -29,4 +31,14 @@ async function getPokemon() {
     });
 }
 
-getPokemon();
+getPokemon()
+
+async function createNotionPage() {
+  for (let pokemon of pokeArray) {
+    const response = await notion.pages.create({
+      "parent": {
+        "type": database
+      }
+    })
+  }
+}
