@@ -7,7 +7,7 @@ const pakeArray = []
 
 async function getPokemon() {
   await axios
-    .get("https://pokeapi.co/api/v2/pokemon/1")
+    .get("https://pokeapi.co/api/v2/pokemon/2")
     .then((poke) => {
       
       const pokeData = {
@@ -24,11 +24,13 @@ async function getPokemon() {
       }
       
       pakeArray.push(pokeData)
-      console.log(pokeData);
+      console.log(`Fetching ${pokeData.name} from PokeAPI.`)
     })
     .catch((error) => {
       console.log(error);
     });
+  createNotionPage
+  
 }
 
 getPokemon()
@@ -54,15 +56,15 @@ async function createNotionPage() {
         "No": {
           "number": pokemon.number
         },
-        "HP": {  "number": pokemon.hp },
-        "Attack": {  "number": pokemon.attack },
-        "Defense": {  "number": pokemon.defense },
-        "Sp. Attack": {  "number": pokemon.[ 'special-attack' ] },
-        "Sp. Defense": {  "number": pokemon.[ 'special-defense'] },
-        
-        
+        "HP": { "number": pokemon.hp },
+        "Attack": { "number": pokemon.attack },
+        "Defense": { "number": pokemon.defense },
+        "Sp. Attack": { "number": pokemon['special-attack'] },
+        "Sp. Defense": { "number": pokemon['special-defense'] },
+        "Speed": { "number": pokemon.speed },
+        "Height": { "number": pokemon.height },
+        "Weight": { "number": pokemon.weight },      
         }
-      }
     })
   }
 }
