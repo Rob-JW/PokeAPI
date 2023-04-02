@@ -11,9 +11,22 @@ async function getPokemon() {
     await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`)
       .then((poke) => {
       
+      const typesArray = []
+      
+      for (let type of poke.data.types) {
+        const typObj = {
+          "name": type.type.name
+        }
+      }
+      
+      const sprite = (!poke.data.sprotes.front_default) ? 
+        poke.data.sprites.other['official-artwork'].front_default : 
+        poke.data.sprotes.front_default
+      
       const pokeData = {
         "name": poke.data.species.name,
         "number": poke.data.id,
+        "types": typesArray,
         "hp": poke.data.stats[0].base_stat,
         "height": poke.data.height,
         "weight": poke.data.weight,
@@ -22,8 +35,8 @@ async function getPokemon() {
         "special-attack": poke.data.stats[3].base_stat,
         "special-defense": poke.data.stats[4].base_stat,
         "speed": poke.data.stats[5].base_stat,
-        "sprite": poke.data.sprite.front_default,
-        "artwork": poke.data.sprites.other['official-artwork'].front_
+        "sprite": sprite,
+        "artwork": poke.data.sprites.other['official-artwork'].front_default,
       }
       
       console.log(`Fetching ${pokeData.name} from PokeAPI.`)
