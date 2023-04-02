@@ -7,7 +7,7 @@ const pokeArray = []
 
 async function getPokemon() {
   
-  for  (let i = 1; i <= 10; i ++) {
+  for  (let i = 3; i <= 10; i ++) {
     await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`)
       .then((poke) => {
       
