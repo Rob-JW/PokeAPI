@@ -40,7 +40,9 @@ async function createNotionPage() {
         "type": "database_id",
         "database_id": process.env.NOTION_DATABASE_ID
       },
-      "properties"
+      "properties": {
+        "name"
+      }
     })
   }
 }
