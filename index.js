@@ -7,7 +7,7 @@ const pokeArray = []
 
 async function getPokemon() {
   
-  for  (let i = 120; i <= 130; i ++) {
+  for  (let i = 1; i <= 10; i ++) {
     await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`)
       .then((poke) => {
       
@@ -34,13 +34,9 @@ async function getPokemon() {
       .replace(/Nidoran M/,"Nidoran♂")
       .replace(/Flabebe/,"Flabébé")
       
-      console.log(processedName)                                    
-      
       const sprite = (!poke.data.sprites.front_default) ? poke.data.sprites.other['official-artwork'].front_default : poke.data.sprites.front_default
       
       const bulbURL = `https://bulbapedia.bulbagarden.net/wiki/${processedName.replace(' ', '_')}_(Pokémon)`
-
-      console.log(bulbURL)
       
       const pokeData = {
         "name": processedName,
@@ -68,7 +64,7 @@ async function getPokemon() {
     })
   }
 
-//  createNotionPage()
+createNotionPage()
 }
 
 getPokemon();
@@ -92,6 +88,7 @@ async function createNotionPage() {
         "type": "external",
         "external": {
           "url": pokemon.sprite
+        }
       },
       "properties": {
         "Name": {
@@ -107,7 +104,7 @@ async function createNotionPage() {
         "No": {
           "number": pokemon.number,
         },
-        "type": { "multi_select": pokemon.types }
+        "type": { "multi_select": pokemon.types },
         "HP": { "number": pokemon.hp },
         "Attack": { "number": pokemon.attack },
         "Defense": { "number": pokemon.defense },
@@ -116,7 +113,16 @@ async function createNotionPage() {
         "Speed": { "number": pokemon.speed },
         "Height": { "number": pokemon.height },
         "Weight": { "number": pokemon.weight },
-      }
+      },
+      "children": [
+        {
+          "object": "block",
+          "type": "bookmark",
+          "bookmark": {
+            "url": poke.bulbURL
+          }
+        }
+      ]
     })
     console.log(response)
   }
