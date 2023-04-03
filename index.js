@@ -104,7 +104,7 @@ async function createNotionPage() {
         "No": {
           "number": pokemon.number,
         },
-        "type": { "multi_select": pokemon.types },
+        "Type": { "multi_select": pokemon.types },
         "HP": { "number": pokemon.hp },
         "Attack": { "number": pokemon.attack },
         "Defense": { "number": pokemon.defense },
@@ -119,7 +119,7 @@ async function createNotionPage() {
           "object": "block",
           "type": "bookmark",
           "bookmark": {
-            "url": poke.bulbURL
+            "url": pokemon.bulbURL
           }
         }
       ]
