@@ -82,6 +82,17 @@ async function createNotionPage() {
         "type": "database_id",
         "database_id": process.env.NOTION_DATABASE_ID,
       },
+      "cover": {
+        "type": "external",
+        "external": {
+          "url": pokemon.artwork
+        }
+      },
+      "icon": {
+        "type": "external",
+        "external": {
+          "url": pokemon.sprite
+      },
       "properties": {
         "Name": {
           "title": [
@@ -96,7 +107,7 @@ async function createNotionPage() {
         "No": {
           "number": pokemon.number,
         },
-        "type": {"multi_select"}
+        "type": { "multi_select": pokemon.types }
         "HP": { "number": pokemon.hp },
         "Attack": { "number": pokemon.attack },
         "Defense": { "number": pokemon.defense },
