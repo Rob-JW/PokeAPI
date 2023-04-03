@@ -64,6 +64,13 @@ async function getPokemon() {
     })
   }
 
+  for (let pokemon of pokeArray) {
+    
+    const flavorTown = await axios.get(`https://pokeapi.cp/api/v2/pokemon-specoies/${pokemon.number}`)
+    .then((f))
+    
+  }
+  
 createNotionPage()
 }
 
