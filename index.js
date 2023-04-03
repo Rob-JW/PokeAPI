@@ -66,12 +66,16 @@ async function getPokemon() {
 
   for (let pokemon of pokeArray) {
     
-    const flavorTown = await axios.get(`https://pokeapi.cp/api/v2/pokemon-specoies/${pokemon.number}`)
-    .then((f))
+    const flavor = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.number}`)
+    .then((flavor) => {
+          
+      const flavorText = flavor.data.flavor_text_entries.find(({languge: { name }}) => name === "en").flavor_text.replace.genera.find(({language: {}}))
+      
+          })
     
   }
   
-createNotionPage()
+// createNotionPage()
 }
 
 getPokemon();
