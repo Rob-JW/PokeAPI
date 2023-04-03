@@ -69,7 +69,15 @@ async function getPokemon() {
     const flavor = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.number}`)
     .then((flavor) => {
           
-      const flavorText = flavor.data.flavor_text_entries.find(({languge: { name }}) => name === "en").flavor_text.replace.genera.find(({language: {}}))
+      const flavorText = flavor.data.flavor_text_entries.find(({language: { name }}) => name === "en").flavor_text.replace(/\n|\f|\r/g, " ")
+      const category = flavor.data.genera.find(({language: { name }}) => name === "en").genus
+      const generation = flavor.data.genaration.name.split(/-/).pop().toUpperCase()
+      
+        pokemon['flavor-text'] = flavorText
+        pokemon.category = category
+        pokemon.generation = generation
+      
+      console.log(`Fetched flavor info for ${pokemon.name}.`)
       
           })
     
