@@ -71,14 +71,21 @@ async function getPokemon() {
           
       const flavorText = flavor.data.flavor_text_entries.find(({language: { name }}) => name === "en").flavor_text.replace(/\n|\f|\r/g, " ")
       const category = flavor.data.genera.find(({language: { name }}) => name === "en").genus
-      const generation = flavor.data.genaration.name.split(/-/).pop().toUpperCase()
+      const generation = flavor.data.generation.name.split(/-/).pop().toUpperCase()
       
         pokemon['flavor-text'] = flavorText
+      
+      console.log(flavorText)
+      
         pokemon.category = category
+      
+      console.log(category)
+      
         pokemon.generation = generation
       
-      console.log(`Fetched flavor info for ${pokemon.name}.`)
+      console.log(generation)
       
+      console.log(`Fetched flavor info for ${pokemon.name}.`)
           })
     
   }
