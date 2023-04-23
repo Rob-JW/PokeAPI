@@ -131,6 +131,14 @@ async function createNotionPage() {
           "number": pokemon.number,
         },
         "Type": { "multi_select": pokemon.types },
+        "Generation": {
+          "sellect": {
+            "name": pokemon.generation
+          }
+        },
+        "Category": {
+          "select":
+        },
         "HP": { "number": pokemon.hp },
         "Attack": { "number": pokemon.attack },
         "Defense": { "number": pokemon.defense },
