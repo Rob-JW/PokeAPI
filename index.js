@@ -131,7 +131,7 @@ async function createNotionPage() {
           "number": pokemon.number,
         },
         "Type": { "multi_select": pokemon.types },
-        "Generation": {
+        "generation": {
           "sellect": {
             "name": pokemon.generation
           }
@@ -164,12 +164,12 @@ async function createNotionPage() {
               {
                 "type": "text",
                 "text": {
-                  "content": ['flavor-text']
+                  "content": pokemon['flavor-text']
                 }
               }
             ]            
           }
-        },
+         },
         {
           "object": "block",
           "type": "paragraph",
@@ -183,7 +183,7 @@ async function createNotionPage() {
               }
             ]            
           }
-        },
+         },
         {
           "object": "block",
           "type": "bookmark",
