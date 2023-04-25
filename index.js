@@ -137,7 +137,14 @@ async function createNotionPage() {
           }
         },
         "Category": {
-          "select":
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": pokemon.category
+              }
+            }
+          ]
         },
         "HP": { "number": pokemon.hp },
         "Attack": { "number": pokemon.attack },
@@ -149,6 +156,16 @@ async function createNotionPage() {
         "Weight": { "number": pokemon.weight },
       },
       "children": [
+        {
+          "object": "block",
+          "type": "paragraph",
+          "paragraph": {
+            "rich_text": {
+              "content": pokemon{'
+            '}
+            }
+          }
+        },
         {
           "object": "block",
           "type": "bookmark",
