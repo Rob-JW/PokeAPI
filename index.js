@@ -70,27 +70,25 @@ async function getPokemon() {
     .then((flavor) => {
           
       const flavorText = flavor.data.flavor_text_entries.find(({language: { name }}) => name === "en").flavor_text.replace(/\n|\f|\r/g, " ")
-      const category = flavor.data.genera.find(({language: { name }}) => name === "en").genus
-      const generation = flavor.data.generation.name.split(/-/).pop().toUpperCase()
       
         pokemon['flavor-text'] = flavorText
       
-      console.log(flavorText)
+      const category = flavor.data.genera.find(({language: { name }}) => name === "en").genus
       
         pokemon.category = category
       
-      console.log(category)
+      const generation = flavor.data.generation.name.split(/-/).pop().toUpperCase()
       
         pokemon.generation = generation
       
-      console.log(generation)
-      
-      console.log(`Fetched flavor info for ${pokemon.name}.`)
+        console.log(`Fetched flavor information for ${pokemon.name}.`)
           })
     
   }
   
-createNotionPage()
+  
+  
+// createNotionPage()
 }
 
 getPokemon();
@@ -131,7 +129,7 @@ async function createNotionPage() {
           "number": pokemon.number,
         },
         "Type": { "multi_select": pokemon.types },
-        "generation": {
+        "Generation": {
           "sellect": {
             "name": pokemon.generation
           }
