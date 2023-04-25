@@ -7,7 +7,7 @@ const pokeArray = []
 
 async function getPokemon() {
   
-  for  (let i = 1; i <= 10; i ++) {
+  for  (let i = 1; i <= 25; i ++) {
     await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`)
       .then((poke) => {
       
@@ -90,7 +90,7 @@ async function getPokemon() {
     
   }
   
-// createNotionPage()
+createNotionPage()
 }
 
 getPokemon();
@@ -158,12 +158,30 @@ async function createNotionPage() {
       "children": [
         {
           "object": "block",
+          "type": "quote",
+          "quote": {
+            "rich_text": [
+              {
+                "type": "text",
+                "text": {
+                  "content": ['flavor-text']
+                }
+              }
+            ]            
+          }
+        },
+        {
+          "object": "block",
           "type": "paragraph",
           "paragraph": {
-            "rich_text": {
-              "content": pokemon{'
-            '}
-            }
+            "rich_text": [
+              {
+                "type": "text",
+                "text": {
+                  "content": ""
+                }
+              }
+            ]            
           }
         },
         {
