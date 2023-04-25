@@ -86,9 +86,7 @@ async function getPokemon() {
     
   }
   
-  
-  
-// createNotionPage()
+createNotionPage()
 }
 
 getPokemon();
@@ -126,7 +124,7 @@ async function createNotionPage() {
           ]
         },
         "No": {
-          "number": pokemon.number,
+          "number": pokemon.number
         },
         "Type": { "multi_select": pokemon.types },
         "Generation": {
