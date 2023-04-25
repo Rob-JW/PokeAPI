@@ -91,6 +91,10 @@ createNotionPage()
 
 getPokemon();
 
+const sleep = (milliseconds) => {
+  return new Promise(resolve => setTimeout(resolve, milliseconds))
+};
+
 async function createNotionPage() {
   for (let pokemon of pokeArray) {
     
@@ -179,7 +183,7 @@ async function createNotionPage() {
               }
             ]            
           }
-         },
+        },
         {
           "object": "block",
           "type": "bookmark",
