@@ -6,7 +6,7 @@ const notion = new Client({ auth: process.env.NOTION_KEY });
 const pokeArray = [];
 
 async function getPokemon() {
-  for (let i = 1; i <= 25; i++) {
+  for (let i = 1; i <= 1015; i++) {
     await axios
       .get(`https://pokeapi.co/api/v2/pokemon/${i}`)
       .then((poke) => {
@@ -71,13 +71,12 @@ async function getPokemon() {
       });
   }
 
-/*....for (let pokemon of pokeArray) {
+  /*....for (let pokemon of pokeArray) {
     const flavor = await axios
       .get(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.number}`)
       .then((flavor) => {....*/
-  
-  
-    for (let pokemon of pokeArray) {
+
+  for (let pokemon of pokeArray) {
     await axios
       .get(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.number}`)
       .then((flavor) => {
@@ -98,7 +97,7 @@ async function getPokemon() {
 
         console.log(`Fetched flavor info for ${pokemon.name}.`);
       })
-/*      .catch((error) => {
+      /*      .catch((error) => {
         console.log(error);
       });
   }
@@ -120,9 +119,7 @@ async function createNotionPage() {
         type: "database_id",
         database_id: process.env.NOTION_DATABASE_ID,
       },*/
-      
-      
-      
+
       .catch((error) => {
         console.log(error);
       });
@@ -145,10 +142,7 @@ async function createNotionPage() {
         type: "database_id",
         database_id: process.env.NOTION_DATABASE_ID,
       },
-      
-      
-      
-      
+
       cover: {
         type: "external",
         external: {
@@ -177,7 +171,7 @@ async function createNotionPage() {
         },
         Type: { multi_select: pokemon.types },
         Generation: {
-          sellect: {
+          select: {
             name: pokemon.generation,
           },
         },
