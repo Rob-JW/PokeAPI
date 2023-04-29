@@ -71,10 +71,17 @@ async function getPokemon() {
       });
   }
 
-  /*....for (let pokemon of pokeArray) {
+  /*....
+  
+  I'm leaaving the errors in my code in the hopw that I come back here one day and remember how hard it was for me to start, I'm sure I will be happy that I didn't give up.
+  Never give up!
+  
+  for (let pokemon of pokeArray) {
     const flavor = await axios
       .get(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.number}`)
-      .then((flavor) => {....*/
+      .then((flavor) => {
+      
+   ...*/
 
   for (let pokemon of pokeArray) {
     await axios
@@ -97,7 +104,13 @@ async function getPokemon() {
 
         console.log(`Fetched flavor info for ${pokemon.name}.`);
       })
-      /*      .catch((error) => {
+      
+/*...
+
+I have commented out this section as it contains an error, I couldn't find the error so I gave the code segment to ChatGPT and it fixed it for me.
+I'm leaving this here to remind me that we all have to start somewhere and making mistakes is how we grow. I still cannot see the error. more to learn.
+      
+      .catch((error) => {
         console.log(error);
       });
   }
@@ -118,7 +131,9 @@ async function createNotionPage() {
       parent: {
         type: "database_id",
         database_id: process.env.NOTION_DATABASE_ID,
-      },*/
+      },
+      
+...*/
 
       .catch((error) => {
         console.log(error);
